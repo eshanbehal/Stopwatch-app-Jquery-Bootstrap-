@@ -31,3 +31,11 @@ body{
     font-size: 2.5vw;
     cursor: pointer;
 }
+.control:active{
+    color : d7A04e;
+    background-color: white;
+}
+#lapse{
+    max-height: 270px;
+    overflow-y: scroll;
+}
