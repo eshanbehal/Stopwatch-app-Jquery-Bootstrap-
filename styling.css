@@ -9,3 +9,7 @@ body{
 /*    vw - means viewport-width*/
     
 }
+#lap{
+    text-align: right;
+    font-size: 4vw;
+}
