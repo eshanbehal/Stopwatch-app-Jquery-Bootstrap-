@@ -17,3 +17,17 @@ body{
     text-align: center;
     font-size: 10vw;
 }
+#controlsContainer{
+    margin-bottom: 100px;
+}
+.control{
+    color: white;
+    background-color: #d7A04e;
+    height: 10vw;
+    width: 10vw;
+    border-radius: 100%;
+    text-align: center;
+    padding: 2% 0;
+    font-size: 2.5vw;
+    cursor: pointer;
+}
