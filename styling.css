@@ -35,7 +35,20 @@ body{
     color : d7A04e;
     background-color: white;
 }
-#lapse{
+#laps{
     max-height: 270px;
     overflow-y: scroll;
+}
+.lap{
+    border: 1px solid white;
+    margin: 15px;
+    height: 50px;
+}
+.laptimetitle{
+    font-size: 1.5em;
+    float: left;
+}
+.laptime{
+    font-size: 2em;
+    float: right;
 }
