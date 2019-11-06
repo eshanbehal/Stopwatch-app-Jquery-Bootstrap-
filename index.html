@@ -53,6 +53,18 @@
           
           var timeMinutes, timeSeconds, timeCentiseconds, lapMinutes, lapSeconds, lapCentiseconds;
           
+          //on app load show start and lap buttons.
+          
+          hideshowButtons("#startButton","#lapButton");
+          
+          
+          //functions to be used.
+          
+          function hideshowButtons(x,y){
+              $(".control").hide();
+              $(x).show();
+              $(y).show();
+          }
       });
       </script>  
     </body>
