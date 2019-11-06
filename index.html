@@ -70,6 +70,35 @@
               startAction();
           });
           
+          //click on stop button
+          $("#stopButton").click(function(){
+              //show resume and reset.
+              hideshowButtons("#resumeButton","#resetButton");
+              
+              //stop counter
+              
+              clearInterval(action);
+          });
+          
+          //click on resume button
+          
+          $("#resumeButton").click(function(){
+              //show stop and lap button
+              
+            hideshowButtons("#stopButton","#lapButton");
+              
+              //start counter
+              
+              startAction();
+              
+          });
+          
+          //click on reset button
+          $("#resetButton").click(function(){
+              //reload the page
+              location.reload();
+          });
+          
           
           //functions to be used.
           
