@@ -43,27 +43,33 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
     <script>
       $(function(){
-    //variables
-    var mode = 0;//App mode
-    var timeCounter = 0;//time counter
-    var lapCounter = 0;//lap counter
-    var action;//variable for setInterval
-    var lapNumber = 0;//Number of Laps
-        
-        //minutes,seconds,centiseconds for time and lap
-    var timeMinutes, timeSeconds, timeCentiseconds, lapMinutes, lapSeconds, lapCentiseconds;
-    
-    //On App load show start and lap buttons
-    hideshowButtons("#startButton","#lapButton");
-    //click on startButton
-    $("#startButton").click(function(){
-        //mode on
-        mode = 1;
-        //show stop and lap buttons
-        hideshowButtons("#stopButton","#lapButton");
-        //start counter
-        startAction();
-    });
+          //Defining the variables to be used .
+          var mode = 0;//game mode
+          var timeCounter = 0;//for counting time
+          var lapCounter = 0;//for counting the lap time
+          var action;//variable for setInterval
+          var lapNumber = 0;//for the number of laps
+          //for minutes,seconds,centiseconds of time and lap.
+          
+          var timeMinutes, timeSeconds, timeCentiseconds, lapMinutes, lapSeconds, lapCentiseconds;
+          
+          //on app load show start and lap buttons.
+          
+          hideshowButtons("#startButton","#lapButton");
+          
+          //click on startButton
+          
+          $("#startButton").click(function(){
+              //change mode
+              mode = 1;
+              
+             //show stop and lap buttons.
+              hideshowButtons("#stopButton","#lapButton");
+              
+              //start counter.
+              startAction();
+          });
+          
           
           //functions to be used.
           
@@ -78,7 +84,13 @@
           function startAction(){
               action = setInterval(function(){
                   timeCounter++;
+                  if(timeCounter == 100*60*100){
+                      timeCounter = 0;
+                  }
                   lapCounter++;
+                  if(lapCounter == 100*60*100){
+                      lapCounter = 0;
+                  }
                   updateTime();
               },10);
           }
@@ -90,19 +102,29 @@
         //1sec=100centiseconds
         timeSeconds = Math.floor((timeCounter%6000)/100);
         timeCentiseconds = (timeCounter%6000)%100;
-        $("#timeminute").text(timeMinutes);
-        $("#timesecond").text(timeSeconds);
-        $("#timecentisecond").text(timeCentiseconds);
+        $("#timeminute").text(format(timeMinutes));
+        $("#timesecond").text(format(timeSeconds));
+        $("#timecentisecond").text(format(timeCentiseconds));
         
         //1min=60*100centiseconds=6000centiseconds
         lapMinutes = Math.floor(lapCounter/6000);
         //1sec=100centiseconds
         lapSeconds = Math.floor((lapCounter%6000)/100);
         lapCentiseconds = (lapCounter%6000)%100;
-        $("#lapminute").text(lapMinutes);
-        $("#lapsecond").text(lapSeconds);
-        $("#lapcentisecond").text(lapCentiseconds);
+        $("#lapminute").text(format(lapMinutes));
+        $("#lapsecond").text(format(lapSeconds));
+        $("#lapcentisecond").text(format(lapCentiseconds));
     }
+          
+          //function for formatting numbers.
+          
+          function format(number){
+              if(number<10){
+                  return '0'+number;
+              }else{
+                  return number;
+              }
+          }
     
       });
       </script>  
