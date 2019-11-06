@@ -57,13 +57,43 @@
           
           hideshowButtons("#startButton","#lapButton");
           
+          //click on startButton
+          
+          $("#startButton").click(function(){
+              //change mode
+              mode = 1;
+              
+             //show stop and lap buttons.
+              hideshowButtons("#stopButton","#lapButton");
+              
+              //start counter.
+              startAction();
+          });
+          
           
           //functions to be used.
           
+          //hideshow buttons function.
           function hideshowButtons(x,y){
               $(".control").hide();
               $(x).show();
               $(y).show();
+          }
+          
+          //start the counter
+          function startAction(){
+              action = setInterval(function(){
+                  timeCounter++;
+                  lapCounter++;
+                  updateTime();
+              },10);
+          }
+          
+          //update time: converts counter to min,sec,centiseconds.
+          function updateTime(){
+              //1 min= 60secs ; 1sec= 100centiseconds
+              //so 1min=60*100= 6000centiseconds.
+              timeMinutes = Math.floor(timeCounter/6000);
           }
       });
       </script>  
